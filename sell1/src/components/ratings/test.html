@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text" id="a">
+<span id="b"></span>
+<script>
+var obj = {};
+
+Object.defineProperty(obj, 'hello',{
+  set: function(newVal) {
+    //document.getElementById('a').value = newVal
+    document.getElementById('b').innerHTML = newVal
+  }
+});
+
+document.addEventListener('keyup', function (e) {
+  //每次输入input的value的值，都会改变obj.hello，都会调用set方法，所以我们可以用set方法做一些事情
+  obj.hello = e.target.value
+});
+</script>
+</body>
+</html>
